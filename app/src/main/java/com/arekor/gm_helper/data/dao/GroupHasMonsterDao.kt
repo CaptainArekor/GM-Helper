@@ -5,7 +5,7 @@ import androidx.room.*
 import com.arekor.gm_helper.data.model.GroupHasMonster
 
 @Dao
-interface GroupHasMonster {
+interface GroupHasMonsterDao {
     @Query("SELECT * FROM group_has_monster")
     fun getAll(): LiveData<List<GroupHasMonster>>
 

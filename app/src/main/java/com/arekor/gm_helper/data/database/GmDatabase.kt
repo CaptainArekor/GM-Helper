@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.arekor.gm_helper.data.dao.GroupDao
+import com.arekor.gm_helper.data.dao.GroupHasMonsterDao
 import com.arekor.gm_helper.data.dao.MonsterDao
 import com.arekor.gm_helper.data.model.Group
 import com.arekor.gm_helper.data.model.GroupHasMonster
@@ -18,7 +20,9 @@ const val DATABASE_NAME = "GMDatabase"
     exportSchema = false
 )
 abstract class GmDatabase : RoomDatabase() {
-    abstract fun studentDao(): MonsterDao
+    abstract fun monsterDao(): MonsterDao
+    abstract fun groupDao(): GroupDao
+    abstract fun groupHasMonsterDao(): GroupHasMonsterDao
 
     companion object {
         private var INSTANCE: GmDatabase? = null

@@ -39,7 +39,7 @@ dependencies {
     def room_version = "2.1.0-alpha04"
     //noinspection GradleDependency
     implementation "androidx.room:room-runtime:$room_version"
-    kapt 'androidx.room:room-compiler:2.3.0-alpha01'
+    //kapt 'androidx.room:room-compiler:2.3.0-alpha01'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'
 
     // Material components theme
