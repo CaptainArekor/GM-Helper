@@ -41,13 +41,13 @@ class MonsterListFragment : Fragment() {
         recyclerView?.layoutManager = linearLayoutManager
 
         // Observe the model
-        /*model.allMonsters.observe(this, Observer { monsters ->
+        model.allMonsters.observe(this, Observer { monsters ->
             // Data bind the recycler view
             monster_list_recyclerview.adapter = MonsterAdapter(monsters)
         })
 
         // Insert data into table
-        monster_list_add_monster.setOnClickListener {
+        /*monster_list_add_monster.setOnClickListener {
             doAsync {
                 model.insert(Monster(null, "Monstre"))
             }
