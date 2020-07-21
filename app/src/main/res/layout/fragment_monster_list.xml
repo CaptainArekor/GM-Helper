@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".monster.MonsterList">
+    android:background="@color/cardview_dark_background"
+    tools:context=".monster.MonsterListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/monster_list_recyclerview"
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:padding="10dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/monster_list_add_monster"
@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_add" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>

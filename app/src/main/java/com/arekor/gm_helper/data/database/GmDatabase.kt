@@ -26,6 +26,7 @@ abstract class GmDatabase : RoomDatabase() {
 
     companion object {
         private var INSTANCE: GmDatabase? = null
+
         fun getInstance(context: Context): GmDatabase {
             if (INSTANCE == null) {
                 INSTANCE = Room.databaseBuilder(

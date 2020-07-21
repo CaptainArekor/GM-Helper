@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/navigationMenuFragment">
+
+    <fragment
+        android:id="@+id/monsterListFragment"
+        android:name="com.arekor.gm_helper.monster.MonsterListFragment"
+        android:label="fragment_monster_list"
+        tools:layout="@layout/fragment_monster_list" >
+        <action
+            android:id="@+id/action_monsterListFragment_to_navigationMenuFragment"
+            app:destination="@id/navigationMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigationMenuFragment"
+        android:name="com.arekor.gm_helper.navigation.NavigationMenuFragment"
+        android:label="fragment_navigation_menu"
+        tools:layout="@layout/fragment_navigation_menu" >
+        <action
+            android:id="@+id/action_navigationMenuFragment_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+    </fragment>
+</navigation>
