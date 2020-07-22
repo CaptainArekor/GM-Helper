@@ -4,9 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.arekor.gm_helper.data.dao.GroupDao
-import com.arekor.gm_helper.data.dao.GroupHasMonsterDao
-import com.arekor.gm_helper.data.dao.MonsterDao
+import com.arekor.gm_helper.data.database.dao.GroupDao
+import com.arekor.gm_helper.data.database.dao.GroupHasMonsterDao
+import com.arekor.gm_helper.data.database.dao.MonsterDao
 import com.arekor.gm_helper.data.model.Group
 import com.arekor.gm_helper.data.model.GroupHasMonster
 import com.arekor.gm_helper.data.model.Monster

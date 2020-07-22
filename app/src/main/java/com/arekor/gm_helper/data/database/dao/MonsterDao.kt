@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.data.dao
+package com.arekor.gm_helper.data.database.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
