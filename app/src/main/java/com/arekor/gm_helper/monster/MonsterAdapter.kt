@@ -12,6 +12,7 @@ class MonsterAdapter(val monsters: List<Monster>) : RecyclerView.Adapter<Monster
 
     class MonsterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val title = itemView.monster_list_item_title
+        lateinit var monster: Monster
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
@@ -23,6 +24,7 @@ class MonsterAdapter(val monsters: List<Monster>) : RecyclerView.Adapter<Monster
 
     override fun onBindViewHolder(holder: MonsterAdapter.MonsterViewHolder, position: Int) {
         holder.title.text = monsters[position].name
+        holder.monster = monsters[position]
     }
 
     override fun getItemCount(): Int {

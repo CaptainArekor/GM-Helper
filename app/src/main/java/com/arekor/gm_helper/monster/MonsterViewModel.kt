@@ -15,4 +15,8 @@ class MonsterViewModel(application: Application) : AndroidViewModel(application)
     fun insert(monster: Monster){
         db.monsterDao().insert(monster)
     }
+
+    fun deleteAll(){
+        db.monsterDao().deleteAll()
+    }
 }

@@ -20,4 +20,7 @@ interface MonsterDao {
 
     @Delete
     fun delete(monster: Monster)
+
+    @Query("DELETE FROM monster")
+    fun deleteAll()
 }

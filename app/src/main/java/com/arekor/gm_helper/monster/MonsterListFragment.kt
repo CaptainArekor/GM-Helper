@@ -34,11 +34,20 @@ class MonsterListFragment : Fragment() {
         // Get the view model )
         model = ViewModelProviders.of(this).get(MonsterViewModel::class.java)
 
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
         // Specify layout for recycler view
-        val linearLayoutManager = LinearLayoutManager(
+        var linearLayoutManager = LinearLayoutManager(
             context, RecyclerView.VERTICAL, false
         )
-        var recyclerView = view?.findViewById<RecyclerView>(R.id.monster_list_recyclerview)
+        //var linearLayoutManager = LinearLayoutManager(context)
+        var myView = view
+        var recyclerView = myView?.findViewById<RecyclerView>(R.id.monster_list_recyclerview)
         recyclerView?.layoutManager = linearLayoutManager
 
         // Observe the model
@@ -47,22 +56,10 @@ class MonsterListFragment : Fragment() {
             monster_list_recyclerview.adapter = MonsterAdapter(monsters)
         })
 
-        // Insert data into table
-        /*monster_list_add_monster.setOnClickListener {
-            doAsync {
-                model.insert(Monster(null, "Monstre"))
-            }
-        }*/
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
         view.monster_list_add_monster.setOnClickListener{
             doAsync {
-                model.insert(Monster(null, "Monstre"))
+                var newmonster = Monster(null, "Monstre")
+                model.insert( newmonster )
             }
         }
         return view
