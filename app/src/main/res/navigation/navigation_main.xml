@@ -11,8 +11,8 @@
         android:label="fragment_monster_list"
         tools:layout="@layout/fragment_monster_list" >
         <action
-            android:id="@+id/action_monsterListFragment_to_navigationMenuFragment"
-            app:destination="@id/navigationMenuFragment" />
+            android:id="@+id/action_monsterListFragment_to_monsterCreationFragment"
+            app:destination="@id/monsterCreationFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigationMenuFragment"
@@ -23,4 +23,9 @@
             android:id="@+id/action_navigationMenuFragment_to_monsterListFragment"
             app:destination="@id/monsterListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/monsterCreationFragment"
+        android:name="com.arekor.gm_helper.monster.monster_creation.MonsterCreationFragment"
+        android:label="fragment_monster_creation"
+        tools:layout="@layout/fragment_monster_creation" />
 </navigation>

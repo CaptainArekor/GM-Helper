@@ -1,42 +1,69 @@
 package com.arekor.gm_helper.monster
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.arekor.gm_helper.R
 import com.arekor.gm_helper.data.model.Monster
+import com.arekor.gm_helper.utils.ConfimationModal
 import kotlinx.android.synthetic.main.monster_list_item.view.*
+import org.jetbrains.anko.doAsync
 
-class MonsterAdapter(val monsters: List<Monster>) : RecyclerView.Adapter<MonsterAdapter.MonsterViewHolder>() {
+
+class MonsterAdapter(
+    private val monsters: List<Monster>,
+    monsterListFragment: MonsterListFragment,
+    val contextView: View
+) : RecyclerView.Adapter<MonsterAdapter.MonsterViewHolder>() {
+
+    var model: MonsterViewModel = ViewModelProviders.of(monsterListFragment).get(MonsterViewModel::class.java)
 
     class MonsterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val title = itemView.monster_list_item_title
-        lateinit var monster: Monster
+        val title: TextView = itemView.monster_list_item_title
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
-            : MonsterAdapter.MonsterViewHolder {
+            : MonsterViewHolder {
         val v: View = LayoutInflater.from(parent.context)
             .inflate(R.layout.monster_list_item,parent,false)
-        return MonsterViewHolder(v)
+        val viewHolder = MonsterViewHolder(v)
+        v.monster_list_item_delete.setOnClickListener{
+            deleteMonster(monsters[viewHolder.adapterPosition])
+        }
+        return viewHolder
     }
 
-    override fun onBindViewHolder(holder: MonsterAdapter.MonsterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MonsterViewHolder, position: Int) {
         holder.title.text = monsters[position].name
-        holder.monster = monsters[position]
     }
 
     override fun getItemCount(): Int {
         return monsters.size
     }
 
-    override fun getItemId(position: Int): Long {
-        return super.getItemId(position)
+    private fun createMonster(){
+        doAsync {
+            model.insert( Monster(null, "Monstre") )
+        }
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
+    private fun deleteMonster(monster: Monster){
+
+        val alertDialogBuilder = AlertDialog.Builder(contextView.context)
+        alertDialogBuilder.setTitle("Delete monster")
+        alertDialogBuilder.setMessage(monster.name)
+        alertDialogBuilder.setPositiveButton(android.R.string.yes) { dialog, which ->
+            doAsync {
+                model.delete(monster)
+            }
+        }
+        alertDialogBuilder.setNegativeButton(android.R.string.no) { dialog, which ->
+        }
+        alertDialogBuilder.show()
     }
 
 }
