@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/monsterListFragment"
-        android:name="com.arekor.gm_helper.monster.MonsterListFragment"
+        android:name="com.arekor.gm_helper.creature.CreatureListFragment"
         android:label="fragment_monster_list"
-        tools:layout="@layout/fragment_monster_list" >
+        tools:layout="@layout/fragment_creature_list" >
         <action
             android:id="@+id/action_monsterListFragment_to_monsterCreationFragment"
             app:destination="@id/monsterCreationFragment" />
@@ -25,7 +25,16 @@
     </fragment>
     <fragment
         android:id="@+id/monsterCreationFragment"
-        android:name="com.arekor.gm_helper.monster.monster_creation.MonsterCreationFragment"
+        android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureSheetFragment"
         android:label="fragment_monster_creation"
-        tools:layout="@layout/fragment_monster_creation" />
+        tools:layout="@layout/fragment_creature_sheet" >
+        <action
+            android:id="@+id/action_monsterCreationFragment_to_diceFragment"
+            app:destination="@id/diceFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/diceFragment"
+        android:name="com.arekor.gm_helper.dice.DiceFragment"
+        android:label="fragment_dice"
+        tools:layout="@layout/fragment_dice" />
 </navigation>

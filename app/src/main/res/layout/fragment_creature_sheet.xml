@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".creature.creature_sheet.CreatureSheetFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/creature_sheet_fragment_main"
+                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureMainFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/creature_sheet_fragment_description"
+                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureDescriptionFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/creature_sheet_fragment_statistics"
+                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatueStatisticsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/creature_sheet_fragment_environment"
+                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureEnvironmentFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:id="@+id/test_open_dices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dices"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

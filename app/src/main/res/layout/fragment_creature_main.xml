@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".creature.creature_sheet.CreatureMainFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPaper"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/creature_sheet_image"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top"
+            android:layout_margin="5dp"
+            android:background="@drawable/background_square_selection"
+            android:scaleType="centerCrop"
+            android:contentDescription="TODO"
+            android:padding="5dp"
+            android:src="@drawable/ic_baseline_portrait_24" />
+
+        <EditText
+            android:id="@+id/creature_sheet_name_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="10dp"
+            android:inputType="text"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:maxLines="1"
+            android:background="@drawable/background_square_selection"
+            android:autofillHints="Name"
+            android:hint="Name"/>
+    </LinearLayout>
+
+</FrameLayout>

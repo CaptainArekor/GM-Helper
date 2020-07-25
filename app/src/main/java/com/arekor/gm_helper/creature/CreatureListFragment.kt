@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.monster
+package com.arekor.gm_helper.creature
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,15 +13,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arekor.gm_helper.R
-import com.arekor.gm_helper.data.model.Monster
-import com.arekor.gm_helper.utils.ConfimationModal
-import kotlinx.android.synthetic.main.fragment_monster_list.*
-import kotlinx.android.synthetic.main.fragment_monster_list.view.*
-import org.jetbrains.anko.doAsync
+import kotlinx.android.synthetic.main.fragment_creature_list.*
+import kotlinx.android.synthetic.main.fragment_creature_list.view.*
 
-class MonsterListFragment : Fragment() {
+class CreatureListFragment : Fragment() {
 
-    lateinit var model: MonsterViewModel
+    lateinit var model: CreatureViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +30,7 @@ class MonsterListFragment : Fragment() {
         })
 
         // Get the view model )
-        model = ViewModelProviders.of(this).get(MonsterViewModel::class.java)
+        model = ViewModelProviders.of(this).get(CreatureViewModel::class.java)
 
     }
 
@@ -41,7 +38,7 @@ class MonsterListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_monster_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_creature_list, container, false)
 
         val linearLayoutManager = LinearLayoutManager(
             context, RecyclerView.VERTICAL, false
@@ -53,7 +50,7 @@ class MonsterListFragment : Fragment() {
         // Observe the model
         model.allMonsters.observe(viewLifecycleOwner, Observer { monsters ->
             // Data bind the recycler view
-            monster_list_recyclerview.adapter = MonsterAdapter(monsters, this, view)
+            monster_list_recyclerview.adapter = CreatureAdapter(monsters, this, view)
         })
 
         view.monster_list_add_monster.setOnClickListener {

@@ -5,14 +5,64 @@
     <string name="confirm_text">Confirm</string>
     <string name="cancel_text">Cancel</string>
 
-
-    <string-array name="monster_size">
-        <item>Tiny</item>
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
-        <item>Huge</item>
-        <item>Gargantuan</item>
+    <string name="spinner_size_tinny">Tiny</string>
+    <string name="spinner_size_small">Small</string>
+    <string name="spinner_size_medium">Medium</string>
+    <string name="spinner_size_large">Large</string>
+    <string name="spinner_size_huge">Huge</string>
+    <string name="spinner_size_gargantuan">Gargantuan</string>
+    <string-array name="creature_size">
+        <item>@string/spinner_size_tinny</item>
+        <item>@string/spinner_size_small</item>
+        <item>@string/spinner_size_medium</item>
+        <item>@string/spinner_size_large</item>
+        <item>@string/spinner_size_huge</item>
+        <item>@string/spinner_size_gargantuan</item>
     </string-array>
+
+    <string name="spinner_type_aberration">Aberration</string>
+    <string name="spinner_type_beast">Beast</string>
+    <string name="spinner_type_celestial">Celestial</string>
+    <string name="spinner_type_construct">Construct</string>
+    <string name="spinner_type_dragon">Dragon</string>
+    <string name="spinner_type_elemental">Elemental</string>
+    <string name="spinner_type_fey">Fey</string>
+    <string name="spinner_type_fiend">Fiend</string>
+    <string name="spinner_type_giant">Giant</string>
+    <string name="spinner_type_humanoid">Humanoid</string>
+    <string name="spinner_type_monstrosity">Monstrosity</string>
+    <string name="spinner_type_ooze">Ooze</string>
+    <string name="spinner_type_plant">Plant</string>
+    <string name="spinner_type_undead">Undead</string>
+    <string-array name="creature_type">
+        <item>@string/spinner_type_aberration</item>
+        <item>@string/spinner_type_beast</item>
+        <item>@string/spinner_type_celestial</item>
+        <item>@string/spinner_type_construct</item>
+        <item>@string/spinner_type_dragon</item>
+        <item>@string/spinner_type_elemental</item>
+        <item>@string/spinner_type_fey</item>
+        <item>@string/spinner_type_fiend</item>
+        <item>@string/spinner_type_giant</item>
+        <item>@string/spinner_type_humanoid</item>
+        <item>@string/spinner_type_monstrosity</item>
+        <item>@string/spinner_type_ooze</item>
+        <item>@string/spinner_type_plant</item>
+        <item>@string/spinner_type_undead</item>
+    </string-array>
+
+    <string name="creature_environment_arctic">Arctic</string>
+    <string name="creature_environment_forest">Forest</string>
+    <string name="creature_environment_mountain">Mountain</string>
+    <string name="creature_environment_underwater">Underwater</string>
+    <string name="creature_environment_coastal">Coastal</string>
+    <string name="creature_environment_grassland">Grassland</string>
+    <string name="creature_environment_swamp">Swamp</string>
+    <string name="creature_environment_urban">Urban</string>
+    <string name="creature_environment_desert">Desert</string>
+    <string name="creature_environment_hill">Hill</string>
+    <string name="creature_environment_underdark">Underdark</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

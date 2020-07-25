@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "monster")
-data class Monster(
+@Entity(tableName = "creature")
+data class Creature(
     @PrimaryKey
     var id: Long?,
 

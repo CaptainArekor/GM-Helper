@@ -1,18 +1,14 @@
 package com.arekor.gm_helper
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
-import com.arekor.gm_helper.monster.MonsterListFragment
-import com.arekor.gm_helper.monster.MonsterViewModel
+import com.arekor.gm_helper.creature.CreatureViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var model: MonsterViewModel
+    lateinit var model: CreatureViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
