@@ -62,7 +62,31 @@
     <string name="creature_environment_desert">Desert</string>
     <string name="creature_environment_hill">Hill</string>
     <string name="creature_environment_underdark">Underdark</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="spinner_alignment_unaligned">Unaligned</string>
+    <string name="spinner_alignment_chaotic_evil">Chaotic Evil</string>
+    <string name="spinner_alignment_neutral_evil">Neutral Evil</string>
+    <string name="spinner_alignment_lawful_evil">Lawful Evil</string>
+    <string name="spinner_alignment_chaotic_neutral">Chaotic Neutral</string>
+    <string name="spinner_alignment_neutral">Neutral</string>
+    <string name="spinner_alignment_lawful_neutral">Lawful Neutral</string>
+    <string name="spinner_alignment_chaotic_good">Chaotic Good</string>
+    <string name="spinner_alignment_neutral_good">Neutral Good</string>
+    <string name="spinner_alignment_lawful_good">Lawful Good</string>
+    <string name="spinner_alignment_any">Any</string>
+    <string-array name="creature_alignment">
+        <item>@string/spinner_alignment_unaligned</item>
+        <item>@string/spinner_alignment_chaotic_evil</item>
+        <item>@string/spinner_alignment_neutral_evil</item>
+        <item>@string/spinner_alignment_lawful_evil</item>
+        <item>@string/spinner_alignment_chaotic_neutral</item>
+        <item>@string/spinner_alignment_neutral</item>
+        <item>@string/spinner_alignment_lawful_neutral</item>
+        <item>@string/spinner_alignment_chaotic_good</item>
+        <item>@string/spinner_alignment_neutral_good</item>
+        <item>@string/spinner_alignment_lawful_good</item>
+        <item>@string/spinner_alignment_any</item>
+    </string-array>
 
 </resources>

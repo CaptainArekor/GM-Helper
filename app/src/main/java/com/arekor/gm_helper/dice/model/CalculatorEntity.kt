@@ -1,17 +1,17 @@
 package com.arekor.gm_helper.dice.model
 
 data class CalculatorEntity(var amount: Int, var sign: Int, var dice: Dice?) {
-    var results = mutableListOf<Int>()
+    private var results = mutableListOf<Int>()
 
     override fun toString(): String {
-        if (dice != null) {
+        return if (dice != null) {
             if (amount == 1) {
-                return "d" + getSafeValue()
+                "d" + getSafeValue()
             } else {
-                return getSafeAmount().toString() + "d" + getSafeValue()
+                getSafeAmount().toString() + "d" + getSafeValue()
             }
         } else {
-            return getSafeAmount().toString()
+            getSafeAmount().toString()
         }
     }
 
@@ -41,21 +41,21 @@ data class CalculatorEntity(var amount: Int, var sign: Int, var dice: Dice?) {
     }
 
     fun getTotal(): Int {
-        if (results.size == 0) {
-            return 0
+        return if (results.size == 0) {
+            0
         } else if (dice == null) {
-            return getSafeAmount()
+            getSafeAmount()
         } else {
             var total = 0
             results.forEach {
                 total += it
             }
-            return total
+            total
         }
     }
 
     fun getRollString(): String {
-        var resultText: String = "("
+        var resultText = "("
         for (x in 0 until results.size) {
             resultText += results[x]
             if (x != results.size - 1) {

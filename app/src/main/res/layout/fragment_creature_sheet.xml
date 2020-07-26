@@ -30,7 +30,7 @@
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/creature_sheet_fragment_statistics"
-                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatueStatisticsFragment"
+                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureStatisticsFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"/>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".creature.creature_sheet.CreatueStatisticsFragment">
+    tools:context=".creature.creature_sheet.CreatureStatisticsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,6 +65,7 @@
                         tools:ignore="SmallSp" />
 
                     <EditText
+                        android:id="@+id/creature_statistics_strength"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -72,6 +73,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:padding="10dp"
+                        android:maxLength="2"
                         android:text="10"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -97,6 +99,7 @@
                         tools:ignore="SmallSp" />
 
                     <EditText
+                        android:id="@+id/creature_statistics_dexterity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -104,6 +107,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:padding="10dp"
+                        android:maxLength="2"
                         android:text="10"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -129,6 +133,7 @@
                         tools:ignore="SmallSp" />
 
                     <EditText
+                        android:id="@+id/creature_statistics_constitution"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -136,6 +141,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:padding="10dp"
+                        android:maxLength="2"
                         android:text="10"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -167,6 +173,7 @@
                         tools:ignore="SmallSp" />
 
                     <EditText
+                        android:id="@+id/creature_statistics_intelligence"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -174,6 +181,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:padding="10dp"
+                        android:maxLength="2"
                         android:text="10"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -199,6 +207,7 @@
                         tools:ignore="SmallSp" />
 
                     <EditText
+                        android:id="@+id/creature_statistics_wisdom"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -206,6 +215,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:padding="10dp"
+                        android:maxLength="2"
                         android:text="10"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -231,6 +241,7 @@
                         tools:ignore="SmallSp" />
 
                     <EditText
+                        android:id="@+id/creature_statistics_charisma"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -238,6 +249,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:padding="10dp"
+                        android:maxLength="2"
                         android:text="10"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
