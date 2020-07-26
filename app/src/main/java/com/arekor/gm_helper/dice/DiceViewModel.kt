@@ -104,12 +104,23 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
             100
         else amount
         if (activeEntity.value != null) {
-            var amountText = activeEntity.value!!.amount.toString()
-            if (amountText != "-1")
-                amountText += safeAmount.toString()
-            else
-                amountText = safeAmount.toString()
-            activeEntity.value!!.amount = amountText.toInt()
+            if(activeEntity.value!!.dice != null && activeEntity.value!!.dice?.custom!!){
+                //
+                var amountText = activeEntity.value!!.dice?.value.toString()
+                if (amountText != "-1")
+                    amountText += safeAmount.toString()
+                else
+                    amountText = safeAmount.toString()
+                activeEntity.value!!.dice?.value = amountText.toInt()
+                //
+            } else {
+                var amountText = activeEntity.value!!.amount.toString()
+                if (amountText != "-1")
+                    amountText += safeAmount.toString()
+                else
+                    amountText = safeAmount.toString()
+                activeEntity.value!!.amount = amountText.toInt()
+            }
         } else {
             activeEntity.value = CalculatorEntity(safeAmount, PLUS_SIGN, null)
         }
@@ -120,12 +131,20 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
         if (activeEntity.value != null) {
             if (activeEntity.value?.amount == -1)
                 activeEntity.value?.amount = 1
-            activeEntity.value?.dice = Dice(diceValue)
+            activeEntity.value?.dice = createDice(diceValue)
         } else {
-            activeEntity.value = CalculatorEntity(1, PLUS_SIGN, Dice(diceValue))
+            activeEntity.value = CalculatorEntity(1, PLUS_SIGN, createDice(diceValue))
         }
-        addActiveEntity()
+        if(!activeEntity.value!!.dice?.custom!!)
+            addActiveEntity()
         generateTypingText()
+    }
+
+    private fun createDice(diceValue: Int): Dice {
+        return if(diceValue == -1)
+            Dice(diceValue, true)
+        else
+            Dice(diceValue, false)
     }
 
     fun addSign(signValue: Int) {

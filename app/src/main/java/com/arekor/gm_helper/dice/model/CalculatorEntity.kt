@@ -6,16 +6,22 @@ data class CalculatorEntity(var amount: Int, var sign: Int, var dice: Dice?) {
     override fun toString(): String {
         if (dice != null) {
             if (amount == 1) {
-                return "d" + dice!!.value.toString()
+                return "d" + getSafeValue()
             } else {
-                return getSafeAmount().toString() + "d" + dice!!.value.toString()
+                return getSafeAmount().toString() + "d" + getSafeValue()
             }
         } else {
             return getSafeAmount().toString()
         }
     }
 
-    private fun getSafeAmount() : Int {
+    private fun getSafeValue(): String {
+        if (dice!!.value == -1)
+            return ""
+        return (dice!!.value).toString()
+    }
+
+    private fun getSafeAmount(): Int {
         if (amount == -1)
             return 0
         return amount

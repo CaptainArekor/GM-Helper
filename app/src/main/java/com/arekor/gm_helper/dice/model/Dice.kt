@@ -3,7 +3,7 @@ package com.arekor.gm_helper.dice.model
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-data class Dice(var value: Int) {
+data class Dice(var value: Int, var custom: Boolean) {
     var result : Int = 0
 
     fun roll(){

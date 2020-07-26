@@ -53,7 +53,7 @@ class DiceFragment : BottomSheetDialogFragment() {
         diceView.dice_d12_button.setOnClickListener{onDice(12)}
         diceView.dice_d20_button.setOnClickListener{onDice(20)}
         diceView.dice_d100_button.setOnClickListener{onDice(100)}
-        diceView.dice_dx_button.setOnClickListener{onDice(0)}
+        diceView.dice_dx_button.setOnClickListener{onDice(-1)}
 
         diceView.dice_1_button.setOnClickListener{onDigit(1)}
         diceView.dice_2_button.setOnClickListener{onDigit(2)}
