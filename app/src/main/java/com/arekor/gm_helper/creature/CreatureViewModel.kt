@@ -7,7 +7,7 @@ import com.arekor.gm_helper.data.database.GmDatabase
 import com.arekor.gm_helper.data.model.Creature
 
 class CreatureViewModel(application: Application) : AndroidViewModel(application) {
-    val myApplication = application
+    private val myApplication = application
 
     private var db : GmDatabase = GmDatabase.getInstance(myApplication)
     var allMonsters : LiveData<List<Creature>> = db.monsterDao().getAll()

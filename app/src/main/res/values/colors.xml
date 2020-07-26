@@ -10,4 +10,7 @@
 
     <color name="colorPaper">#f2f1e8</color>
     <color name="colorPicker">#f2f2f2</color>
+
+    <color name="colorRed">#ff3300</color>
+    <color name="colorOrange">#ffcc00</color>
 </resources>
