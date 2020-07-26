@@ -45,63 +45,15 @@ class DiceFragment : BottomSheetDialogFragment() {
     ): View? {
         diceView = inflater.inflate(R.layout.fragment_dice, container, false)
         resultView = diceView.dice_result_text
-        diceView.dice_d2_button.setOnClickListener{model.addDice(
-            Dice(
-                2,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d4_button.setOnClickListener{model.addDice(
-            Dice(
-                4,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d6_button.setOnClickListener{model.addDice(
-            Dice(
-                6,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d8_button.setOnClickListener{model.addDice(
-            Dice(
-                8,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d10_button.setOnClickListener{model.addDice(
-            Dice(
-                10,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d12_button.setOnClickListener{model.addDice(
-            Dice(
-                12,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d20_button.setOnClickListener{model.addDice(
-            Dice(
-                20,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_d100_button.setOnClickListener{model.addDice(
-            Dice(
-                100,
-                1,
-                PLUS_SIGN
-            )
-        )}
-        diceView.dice_dx_button.setOnClickListener{}
+        diceView.dice_d2_button.setOnClickListener{onDice(2)}
+        diceView.dice_d4_button.setOnClickListener{onDice(4)}
+        diceView.dice_d6_button.setOnClickListener{onDice(6)}
+        diceView.dice_d8_button.setOnClickListener{onDice(8)}
+        diceView.dice_d10_button.setOnClickListener{onDice(10)}
+        diceView.dice_d12_button.setOnClickListener{onDice(12)}
+        diceView.dice_d20_button.setOnClickListener{onDice(20)}
+        diceView.dice_d100_button.setOnClickListener{onDice(100)}
+        diceView.dice_dx_button.setOnClickListener{onDice(0)}
 
         diceView.dice_1_button.setOnClickListener{onDigit(1)}
         diceView.dice_2_button.setOnClickListener{onDigit(2)}
@@ -114,13 +66,24 @@ class DiceFragment : BottomSheetDialogFragment() {
         diceView.dice_9_button.setOnClickListener{onDigit(9)}
         diceView.dice_0_button.setOnClickListener{onDigit(0)}
 
-
         diceView.dice_clear.setOnClickListener{model.popBackLast()}
+        diceView.dice_multiply.setOnClickListener{onSign(MULTIPLY_SIGN)}
+        diceView.dice_divide.setOnClickListener{onSign(DIVIDE_SIGN)}
+        diceView.dice_plus.setOnClickListener{onSign(PLUS_SIGN)}
+        diceView.dice_minus.setOnClickListener{onSign(MINUS_SIGN)}
         diceView.dice_roll_button.setOnClickListener{model.rollDices()}
         return diceView
     }
 
-    fun onDigit(value: Int){
+    private fun onDigit(value: Int){
+        model.addAmount(value)
+    }
 
+    private fun onSign(sign: Int){
+        model.addSign(sign)
+    }
+
+    private fun onDice(diceValue: Int){
+        model.addDice(diceValue)
     }
 }
