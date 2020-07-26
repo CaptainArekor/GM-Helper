@@ -24,6 +24,7 @@
                 android:background="@color/colorAccent"
                 android:padding="5dp"
                 android:text="0"
+                android:maxLines="3"
                 android:textAlignment="textStart"
                 android:textColor="@android:color/white"
                 android:textSize="25sp"
@@ -43,13 +44,14 @@
                 <TextView
                     android:id="@+id/dice_result_text"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:maxLines="3"
                     android:layout_weight="1"
                     android:background="@color/colorPrimary"
                     android:gravity="end|center_vertical"
                     android:padding="5dp"
                     android:textColor="@android:color/white"
-                    android:textSize="25sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -170,7 +172,6 @@
                     android:layout_height="35dp"
                     android:background="@drawable/background_transparent"
                     android:text="7"
-                    android:onClick="onDigit"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dice_d20_button" />
 

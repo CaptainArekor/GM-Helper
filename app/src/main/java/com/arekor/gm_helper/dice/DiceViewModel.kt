@@ -27,16 +27,10 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
 
     private var activeEntity = MutableLiveData<CalculatorEntity>()
 
-    fun addEntity(entity: CalculatorEntity) {
+    private fun addEntity(entity: CalculatorEntity) {
         entityList.add(entity)
+        activeEntity.value = null
         entities.value = entityList
-        generateTypingText()
-    }
-
-    fun modifyLast(entity: CalculatorEntity) {
-        val index = entityList.lastIndex
-        if (index != -1)
-            entityList[index] = entity
         generateTypingText()
     }
 
@@ -51,12 +45,8 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
         generateTypingText()
     }
 
-    fun clearList() {
-        entityList.clear()
-        generateTypingText()
-    }
-
     fun rollDices() {
+        addActiveEntity()
         generateResult()
         playSound()
     }
@@ -64,12 +54,13 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
     private fun generateTypingText() {
         var typingTextTemp = ""
         for (x in 0 until entityList.size) {
+            if (entityList[x].sign == MINUS_SIGN || x != 0)
+                typingTextTemp += getSign(entityList[x].sign)
             typingTextTemp += entityList[x].toString()
-            if (x != entityList.size - 1)
-                typingTextTemp += " + "
         }
         if (activeEntity.value != null) {
-
+            val position = entityList.size
+            typingTextTemp += getActiveEntityString(position)
         }
         typingText.value = typingTextTemp
     }
@@ -85,30 +76,16 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
             val entity = entityList[x]
             entity.roll()
             when (entity.sign) {
-                PLUS_SIGN -> {
-                    total += entity.getTotal()
-                    if (x != 0)
-                        totalText += " + "
-                }
-                MINUS_SIGN -> {
-                    total -= entity.getTotal()
-                    if (x != 0)
-                        totalText += " - "
-                }
-                MULTIPLY_SIGN -> {
-                    total *= entity.getTotal()
-                    if (x != 0)
-                        totalText += " x "
-                }
-                DIVIDE_SIGN -> {
+                PLUS_SIGN -> total += entity.getTotal()
+                MINUS_SIGN -> total -= entity.getTotal()
+                MULTIPLY_SIGN -> total *= entity.getTotal()
+                DIVIDE_SIGN ->
                     if (entity.getTotal() != 0) {
                         total /= entity.getTotal()
-                        if (x != 0)
-                            totalText += " / "
                     }
-
-                }
             }
+            if (x != 0)
+                totalText += getSign(entity.sign)
             totalText += entity.getRollString()
         }
         resultText.value = totalText
@@ -123,13 +100,20 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun addAmount(amount: Int) {
+        val safeAmount: Int = if (amount > 100)
+            100
+        else amount
         if (activeEntity.value != null) {
             var amountText = activeEntity.value!!.amount.toString()
-            amountText += amount.toString()
+            if (amountText != "-1")
+                amountText += safeAmount.toString()
+            else
+                amountText = safeAmount.toString()
             activeEntity.value!!.amount = amountText.toInt()
         } else {
-            activeEntity.value = CalculatorEntity(amount, PLUS_SIGN, null)
+            activeEntity.value = CalculatorEntity(safeAmount, PLUS_SIGN, null)
         }
+        generateTypingText()
     }
 
     fun addDice(diceValue: Int) {
@@ -141,6 +125,7 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
             activeEntity.value = CalculatorEntity(1, PLUS_SIGN, Dice(diceValue))
         }
         addActiveEntity()
+        generateTypingText()
     }
 
     fun addSign(signValue: Int) {
@@ -149,12 +134,50 @@ class DiceViewModel(application: Application) : AndroidViewModel(application) {
                 addActiveEntity()
             else
                 activeEntity.value!!.sign = signValue
-        else
-            activeEntity.value = CalculatorEntity(-1, signValue, null)
+        activeEntity.value = CalculatorEntity(-1, signValue, null)
+        generateTypingText()
     }
 
     private fun addActiveEntity() {
-        addEntity(activeEntity.value!!)
+        if (verifyActiveEntity()) {
+            addEntity(activeEntity.value!!)
+        }
         activeEntity.value = null
+    }
+
+    private fun verifyActiveEntity(): Boolean {
+        if (activeEntity.value != null) {
+            if (activeEntity.value!!.amount == -1 && activeEntity.value!!.dice != null)
+                return false
+            return true
+        }
+        return false
+    }
+
+    private fun getSign(sign: Int): String {
+        return when (sign) {
+            MULTIPLY_SIGN -> " x "
+            DIVIDE_SIGN -> " / "
+            PLUS_SIGN -> " + "
+            MINUS_SIGN -> " - "
+            else -> ""
+        }
+    }
+
+    private fun getActiveEntityString(position: Int): String {
+        val currentEntity = activeEntity.value
+        if (currentEntity != null) {
+            if (currentEntity.amount == -1) {
+                if (currentEntity.dice == null) {
+                    return getSign(currentEntity.sign)
+                }
+            }
+        }
+        if (position != 0) {
+            if (currentEntity != null) {
+                return getSign(currentEntity.sign) + activeEntity.value.toString()
+            }
+        }
+        return activeEntity.value.toString()
     }
 }
