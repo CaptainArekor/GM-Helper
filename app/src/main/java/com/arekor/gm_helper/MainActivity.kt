@@ -1,10 +1,13 @@
 package com.arekor.gm_helper
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import com.arekor.gm_helper.creature.CreatureViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import com.arekor.gm_helper.R
+
 
 class MainActivity : AppCompatActivity() {
 

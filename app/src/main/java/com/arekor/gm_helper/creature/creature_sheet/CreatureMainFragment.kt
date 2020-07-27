@@ -5,19 +5,33 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.content.ContextCompat
-import com.arekor.gm_helper.R
+import androidx.core.widget.doOnTextChanged
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_creature_main.*
 import kotlinx.android.synthetic.main.fragment_creature_main.view.*
+import com.arekor.gm_helper.R
+
 
 class CreatureMainFragment : Fragment() {
 
     lateinit var creatureView : View
     private val REQUEST_CODE = 100
+    lateinit var model : CreatureSheetViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        model = ViewModelProviders.of(requireActivity()).get(CreatureSheetViewModel::class.java)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +41,24 @@ class CreatureMainFragment : Fragment() {
         creatureView.creature_sheet_image.setOnClickListener {
             permissionCheck()
         }
+        creatureView.creature_sheet_name_text.setOnFocusChangeListener{ view: View, b: Boolean ->
+            //model.currentCreature.name = (view as EditText).text.toString()
+            val newName = (view as EditText).text.toString()
+            model.setName( newName )
+        }
+
+        creatureView.creature_sheet_name_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                model.setName( s.toString() )
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                model.setName( s.toString() )
+            }
+        })
         return creatureView
     }
 

@@ -13,8 +13,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arekor.gm_helper.R
+import com.arekor.gm_helper.data.model.Creature
 import kotlinx.android.synthetic.main.fragment_creature_list.*
 import kotlinx.android.synthetic.main.fragment_creature_list.view.*
+import org.jetbrains.anko.doAsync
 
 class CreatureListFragment : Fragment() {
 
@@ -30,7 +32,7 @@ class CreatureListFragment : Fragment() {
         })
 
         // Get the view model )
-        model = ViewModelProviders.of(this).get(CreatureViewModel::class.java)
+        model = ViewModelProviders.of(requireActivity()).get(CreatureViewModel::class.java)
 
     }
 
@@ -55,9 +57,6 @@ class CreatureListFragment : Fragment() {
 
         view.monster_list_add_monster.setOnClickListener {
             findNavController().navigate(R.id.monsterCreationFragment)
-            /*doAsync {
-                model.insert(Monster(null, "Monstre"))
-            }*/
         }
         return view
     }

@@ -89,4 +89,19 @@
         <item>@string/spinner_alignment_any</item>
     </string-array>
 
+    <string name="spinner_dice_4">d4</string>
+    <string name="spinner_dice_6">d6</string>
+    <string name="spinner_dice_8">d8</string>
+    <string name="spinner_dice_10">d10</string>
+    <string name="spinner_dice_12">d12</string>
+    <string name="spinner_dice_20">d20</string>
+    <string-array name="dices">
+        <item>@string/spinner_dice_4</item>
+        <item>@string/spinner_dice_6</item>
+        <item>@string/spinner_dice_8</item>
+        <item>@string/spinner_dice_10</item>
+        <item>@string/spinner_dice_12</item>
+        <item>@string/spinner_dice_20</item>
+    </string-array>
+
 </resources>

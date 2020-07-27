@@ -20,7 +20,7 @@ const val DATABASE_NAME = "GMDatabase"
     exportSchema = true
 )
 abstract class GmDatabase : RoomDatabase() {
-    abstract fun monsterDao(): CreatureDao
+    abstract fun creatureDao(): CreatureDao
     abstract fun groupDao(): GroupDao
     abstract fun groupHasCreatureDao(): GroupHasCreatureDao
 
