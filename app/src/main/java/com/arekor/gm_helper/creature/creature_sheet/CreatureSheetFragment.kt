@@ -38,7 +38,6 @@ class CreatureSheetFragment : Fragment() {
                 model.insert()
                 creatureView.findNavController().navigateUp()
             }
-
         }
         return creatureView
     }

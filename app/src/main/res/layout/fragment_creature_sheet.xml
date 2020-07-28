@@ -29,22 +29,8 @@
                 android:layout_marginBottom="10dp"/>
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/creature_sheet_fragment_armor_class"
-                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureArmorClassFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"/>
-
-            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/creature_sheet_fragment_statistics"
                 android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureStatisticsFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"/>
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/creature_sheet_fragment_hit_dice"
-                android:name="com.arekor.gm_helper.creature.creature_sheet.CreatureHitDiceFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"/>
