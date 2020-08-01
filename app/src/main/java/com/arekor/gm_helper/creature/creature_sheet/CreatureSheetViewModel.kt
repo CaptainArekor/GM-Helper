@@ -5,13 +5,14 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.arekor.gm_helper.data.database.GmDatabase
 import com.arekor.gm_helper.data.model.Creature
+import com.arekor.gm_helper.utils.CreatureManager
 import org.jetbrains.anko.doAsync
 
 class CreatureSheetViewModel(application: Application) : AndroidViewModel(application) {
     private val myApplication = application
 
     private var db : GmDatabase = GmDatabase.getInstance(myApplication)
-    var currentCreature : MutableLiveData<Creature> = MutableLiveData(Creature(null, ""))
+    var currentCreature : MutableLiveData<Creature> = MutableLiveData(CreatureManager.createNewCreature())
 
 
     fun insert(){

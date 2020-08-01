@@ -1,14 +1,18 @@
 package com.arekor.gm_helper.creature
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.arekor.gm_helper.R
+import com.arekor.gm_helper.creature.creature_sheet.CreatureSheetViewModel
 import com.arekor.gm_helper.data.model.Creature
+import com.arekor.gm_helper.utils.CreatureManager
 import kotlinx.android.synthetic.main.monster_list_item.view.*
 import org.jetbrains.anko.doAsync
 
@@ -16,10 +20,12 @@ import org.jetbrains.anko.doAsync
 class CreatureAdapter(
     private val creatures: List<Creature>,
     creatureListFragment: CreatureListFragment,
-    private val contextView: View
+    private val contextView: View,
+    fragmentActivity: FragmentActivity
 ) : RecyclerView.Adapter<CreatureAdapter.MonsterViewHolder>() {
 
     var model: CreatureViewModel = ViewModelProviders.of(creatureListFragment).get(CreatureViewModel::class.java)
+    var modelSheet = ViewModelProviders.of(fragmentActivity).get(CreatureViewModel::class.java)
 
     class MonsterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val title: TextView = itemView.monster_list_item_title
@@ -46,7 +52,8 @@ class CreatureAdapter(
 
     private fun createCreature(){
         doAsync {
-            model.insert( Creature(null, "Monstre") )
+            if(modelSheet.sheetIsValid())
+            model.insert( CreatureManager.createNewCreature() )
         }
     }
 

@@ -26,4 +26,8 @@ class CreatureViewModel(application: Application) : AndroidViewModel(application
     fun delete(creature: Creature){
         db.creatureDao().delete(creature)
     }
+
+    fun sheetIsValid() : Boolean {
+        return true
+    }
 }

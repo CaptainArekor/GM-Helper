@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arekor.gm_helper.R
 import com.arekor.gm_helper.data.model.Creature
+import com.arekor.gm_helper.navigation.NavigationBarFragment
 import kotlinx.android.synthetic.main.fragment_creature_list.*
 import kotlinx.android.synthetic.main.fragment_creature_list.view.*
 import org.jetbrains.anko.doAsync
@@ -36,6 +37,18 @@ class CreatureListFragment : Fragment() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        setNavigationBar()
+    }
+
+    private fun setNavigationBar() {
+        val navigationBar = childFragmentManager.fragments.first() as NavigationBarFragment
+        navigationBar.setTitle("CREATURES")
+        navigationBar.showBackButton(true)
+        navigationBar.showValidateButton(false)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,7 +65,8 @@ class CreatureListFragment : Fragment() {
         // Observe the model
         model.allMonsters.observe(viewLifecycleOwner, Observer { monsters ->
             // Data bind the recycler view
-            monster_list_recyclerview.adapter = CreatureAdapter(monsters, this, view)
+            monster_list_recyclerview.adapter =
+                CreatureAdapter(monsters, this, view, requireActivity())
         })
 
         view.monster_list_add_monster.setOnClickListener {

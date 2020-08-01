@@ -1,9 +1,13 @@
 <resources>
-    <string name="app_name">GM-Helper</string>
+    <string name="app_name">GM Sidekick</string>
 
     <string name="monster_item_delete_button">Delete</string>
     <string name="confirm_text">Confirm</string>
     <string name="cancel_text">Cancel</string>
+
+    <string name="menu_dice">Dice</string>
+    <string name="menu_creature">Creature</string>
+    <string name="menu_group">Group</string>
 
     <string name="spinner_size_tinny">Tiny</string>
     <string name="spinner_size_small">Small</string>

@@ -1,12 +1,11 @@
 package com.arekor.gm_helper
 
 import android.os.Bundle
-import android.view.View
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.arekor.gm_helper.creature.CreatureViewModel
-import kotlinx.android.synthetic.main.activity_main.*
-import com.arekor.gm_helper.R
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,12 +15,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
-
-    private fun setUpNavigation() {
-        val navHostFragment = Navigation.findNavController(
-            this,
-            fragment_container.id
-        )
     }
 }
