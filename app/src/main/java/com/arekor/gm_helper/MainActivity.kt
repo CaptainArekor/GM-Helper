@@ -1,12 +1,8 @@
 package com.arekor.gm_helper
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import com.arekor.gm_helper.creature.CreatureViewModel
-
 
 class MainActivity : AppCompatActivity() {
 
