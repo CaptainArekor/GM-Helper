@@ -1,6 +1,7 @@
 package com.arekor.gm_helper.creature.creature_sheet
 
 import android.app.Application
+import android.graphics.Bitmap
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.arekor.gm_helper.data.database.GmDatabase
@@ -64,5 +65,13 @@ class CreatureSheetViewModel(application: Application) : AndroidViewModel(applic
 
     fun getComment(): String{
         return currentCreature.value!!.description
+    }
+
+    fun setImage(url: ByteArray){
+        currentCreature.value!!.image = url
+    }
+
+    fun getImage(): ByteArray?{
+        return currentCreature.value!!.image
     }
 }

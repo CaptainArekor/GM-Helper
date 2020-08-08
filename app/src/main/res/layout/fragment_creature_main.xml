@@ -18,14 +18,11 @@
 
         <ImageView
             android:id="@+id/creature_sheet_image"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             android:layout_gravity="top"
             android:layout_margin="5dp"
             android:background="@drawable/background_square_selection"
-            android:contentDescription="TODO"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_portrait_24" />
 
         <EditText
@@ -37,6 +34,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
             android:autofillHints="Name"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/background_square_selection"
             android:hint="Name"
             android:inputType="text"

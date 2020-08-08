@@ -17,14 +17,16 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_creature_main.*
 import kotlinx.android.synthetic.main.fragment_creature_main.view.*
 import com.arekor.gm_helper.R
-import org.w3c.dom.Text
+import com.arekor.gm_helper.utils.ImageWorker
+import com.squareup.picasso.Picasso
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 
 
 class CreatureMainFragment : Fragment() {
 
-    private lateinit var creatureView : View
+    private lateinit var creatureView: View
     private val REQUEST_CODE = 100
-    private lateinit var model : CreatureSheetViewModel
+    private lateinit var model: CreatureSheetViewModel
     private var comment_state = View.GONE
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,23 +44,24 @@ class CreatureMainFragment : Fragment() {
         return creatureView
     }
 
-    private fun setActions(){
+    private fun setActions() {
         creatureView.creature_sheet_image.setOnClickListener {
             permissionCheck()
         }
-        creatureView.creature_sheet_name_text.setOnFocusChangeListener{ view: View, _: Boolean ->
+        creatureView.creature_sheet_name_text.setOnFocusChangeListener { view: View, _: Boolean ->
             //model.currentCreature.name = (view as EditText).text.toString()
             val newName = (view as EditText).text.toString()
-            model.setName( newName )
+            model.setName(newName)
         }
 
         creatureView.creature_sheet_name_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                model.setName( s.toString() )
+                model.setName(s.toString())
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                model.setName( s.toString() )
+                model.setName(s.toString())
             }
         })
 
@@ -66,6 +69,7 @@ class CreatureMainFragment : Fragment() {
             override fun afterTextChanged(p0: Editable?) {
                 model.setComment(p0.toString())
             }
+
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 model.setComment(p0.toString())
@@ -73,8 +77,8 @@ class CreatureMainFragment : Fragment() {
 
         })
 
-        creatureView.creature_sheet_main_expand.setOnClickListener{
-            when(comment_state){
+        creatureView.creature_sheet_main_expand.setOnClickListener {
+            when (comment_state) {
                 View.GONE -> {
                     val newVisibility = View.VISIBLE
                     creatureView.creature_sheet_main_comment_fragment.visibility = newVisibility
@@ -91,7 +95,7 @@ class CreatureMainFragment : Fragment() {
         }
     }
 
-    private fun permissionCheck(){
+    private fun permissionCheck() {
         //check runtime permission
         if (ContextCompat.checkSelfPermission(
                 requireContext(),
@@ -114,11 +118,20 @@ class CreatureMainFragment : Fragment() {
         startActivityForResult(intent, REQUEST_CODE)
     }
 
+    private fun loadImage(image : String){
+        Picasso.get()
+            .load(image)
+            .fit()
+            .transform(RoundedCornersTransformation(45, 0))
+            .into(creature_sheet_image)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-            creature_sheet_image.setImageURI(data?.data) // handle chosen image
-            creature_sheet_image.setPadding(0,0,0,0)
+        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE) {
+            loadImage(data?.data.toString())
+            //val image = ImageWorker.urlToBitMap(data?.data.toString())
+            //creatureView.creature_sheet_image.setImageBitmap(image)
         }
     }
 }
