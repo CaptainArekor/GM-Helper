@@ -12,20 +12,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.content.ContextCompat
-import androidx.core.widget.doOnTextChanged
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.fragment_creature_main.*
 import kotlinx.android.synthetic.main.fragment_creature_main.view.*
 import com.arekor.gm_helper.R
+import org.w3c.dom.Text
 
 
 class CreatureMainFragment : Fragment() {
 
-    lateinit var creatureView : View
+    private lateinit var creatureView : View
     private val REQUEST_CODE = 100
-    lateinit var model : CreatureSheetViewModel
+    private lateinit var model : CreatureSheetViewModel
+    private var comment_state = View.GONE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +38,15 @@ class CreatureMainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         creatureView = inflater.inflate(R.layout.fragment_creature_main, container, false)
+        setActions()
+        return creatureView
+    }
+
+    private fun setActions(){
         creatureView.creature_sheet_image.setOnClickListener {
             permissionCheck()
         }
-        creatureView.creature_sheet_name_text.setOnFocusChangeListener{ view: View, b: Boolean ->
+        creatureView.creature_sheet_name_text.setOnFocusChangeListener{ view: View, _: Boolean ->
             //model.currentCreature.name = (view as EditText).text.toString()
             val newName = (view as EditText).text.toString()
             model.setName( newName )
@@ -51,15 +56,39 @@ class CreatureMainFragment : Fragment() {
             override fun afterTextChanged(s: Editable?) {
                 model.setName( s.toString() )
             }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 model.setName( s.toString() )
             }
         })
-        return creatureView
+
+        creatureView.creature_sheet_comment_text.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                model.setComment(p0.toString())
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                model.setComment(p0.toString())
+            }
+
+        })
+
+        creatureView.creature_sheet_main_expand.setOnClickListener{
+            when(comment_state){
+                View.GONE -> {
+                    val newVisibility = View.VISIBLE
+                    creatureView.creature_sheet_main_comment_fragment.visibility = newVisibility
+                    comment_state = newVisibility
+                    creatureView.creature_sheet_main_expand.setImageResource(R.drawable.ic_baseline_expand_more_24)
+                }
+                View.VISIBLE -> {
+                    val newVisibility = View.GONE
+                    creatureView.creature_sheet_main_comment_fragment.visibility = newVisibility
+                    comment_state = newVisibility
+                    creatureView.creature_sheet_main_expand.setImageResource(R.drawable.ic_baseline_expand_less_24)
+                }
+            }
+        }
     }
 
     private fun permissionCheck(){
@@ -70,7 +99,7 @@ class CreatureMainFragment : Fragment() {
             ) == PackageManager.PERMISSION_DENIED
         ) {
             //permission denied
-            val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE);
+            val permissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
             //show popup to request runtime permission
             requestPermissions(permissions, REQUEST_CODE)
         } else {

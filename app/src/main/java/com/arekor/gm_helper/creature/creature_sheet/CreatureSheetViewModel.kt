@@ -40,7 +40,29 @@ class CreatureSheetViewModel(application: Application) : AndroidViewModel(applic
         return (currentCreature.value!!.name.isNotEmpty())
     }
 
+
+
+
+
+
+
+
+
+
+
     fun setName(name: String){
         currentCreature.value!!.name = name
+    }
+
+    fun getName(): String{
+        return currentCreature.value!!.name
+    }
+
+    fun setComment(comment: String){
+        currentCreature.value!!.description = comment
+    }
+
+    fun getComment(): String{
+        return currentCreature.value!!.description
     }
 }

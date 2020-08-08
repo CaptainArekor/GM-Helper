@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".creature.creature_sheet.CreatureMainFragment">
 
     <LinearLayout
+        android:id="@+id/creature_sheet_main_first_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPaper"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/creature_sheet_image"
@@ -19,25 +23,87 @@
             android:layout_gravity="top"
             android:layout_margin="5dp"
             android:background="@drawable/background_square_selection"
-            android:scaleType="centerCrop"
             android:contentDescription="TODO"
             android:padding="5dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_baseline_portrait_24" />
 
         <EditText
             android:id="@+id/creature_sheet_name_text"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:padding="10dp"
-            android:inputType="text"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginBottom="5dp"
-            android:maxLines="1"
-            android:background="@drawable/background_square_selection"
             android:autofillHints="Name"
-            android:hint="Name"/>
+            android:background="@drawable/background_square_selection"
+            android:hint="Name"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="10dp" />
     </LinearLayout>
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/creature_sheet_main_second_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:background="@color/colorPaper"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/creature_sheet_main_comment_label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/creature_sheet_main_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_margin="5dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/creature_sheet_main_expand"
+            app:layout_constraintStart_toEndOf="@+id/creature_sheet_main_comment_label"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/creature_sheet_main_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_baseline_expand_less_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/creature_sheet_main_comment_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPaper"
+        app:layout_constraintTop_toBottomOf="@+id/creature_sheet_main_second_fragment">
+
+        <EditText
+            android:id="@+id/creature_sheet_comment_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:autofillHints="Name"
+            android:background="@drawable/background_square_selection"
+            android:hint="comment"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:padding="10dp" />
+
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
