@@ -8,11 +8,10 @@
     tools:context=".navigation.NavigationMenuFragment">
 
     <com.github.florent37.diagonallayout.DiagonalLayout
-        android:id="@+id/menu_03"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginTop="300dp"
-        android:elevation="10dp"
+        android:elevation="700dp"
         app:diagonal_angle="20"
         app:diagonal_direction="left"
         app:diagonal_position="bottom"
@@ -25,9 +24,12 @@
             android:scaleType="centerCrop"
             android:src="@drawable/armory_hall" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/menu_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:textColor="@android:color/white"
+            android:padding="30dp"
             android:gravity="center"
             android:rotation="340"
             android:textSize="30dp"
@@ -36,11 +38,10 @@
     </com.github.florent37.diagonallayout.DiagonalLayout>
 
     <com.github.florent37.diagonallayout.DiagonalLayout
-        android:id="@+id/menu_02"
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginTop="150dp"
-        android:elevation="10dp"
+        android:elevation="800dp"
         app:diagonal_angle="20"
         app:diagonal_direction="left"
         app:diagonal_position="bottom"
@@ -54,9 +55,12 @@
             android:scaleType="centerCrop"
             android:src="@drawable/orc_camp" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/menu_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:textColor="@android:color/white"
+            android:padding="30dp"
             android:gravity="center"
             android:rotation="340"
             android:textSize="30dp"
@@ -64,10 +68,9 @@
     </com.github.florent37.diagonallayout.DiagonalLayout>
 
     <com.github.florent37.diagonallayout.DiagonalLayout
-        android:id="@+id/menu_creatures"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:elevation="10dp"
+        android:elevation="900dp"
         app:diagonal_angle="20"
         app:diagonal_direction="left"
         app:diagonal_position="bottom"
@@ -80,25 +83,32 @@
             android:scaleType="centerCrop"
             android:src="@drawable/gobelin_sketch" />
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/menu_creatures"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:textColor="@android:color/white"
             android:gravity="center"
+            android:padding="30dp"
             android:rotation="340"
             android:textSize="30dp"
             android:text="@string/menu_creature"/>
     </com.github.florent37.diagonallayout.DiagonalLayout>
 
     <com.github.florent37.diagonallayout.DiagonalLayout
-        android:id="@+id/menu_dice"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:elevation="10dp"
+        android:elevation="1000dp"
         app:diagonal_angle="22"
         app:diagonal_direction="left"
         app:diagonal_position="bottom"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/menu_dice"
+            android:layout_width="200dp"
+            android:layout_height="80dp"/>
 
         <ImageView
             android:layout_width="match_parent"
