@@ -4,52 +4,114 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
+    android:background="@drawable/background_image_forest"
     tools:context=".navigation.NavigationMenuFragment">
 
-    <ImageView
-        android:id="@+id/navigation_menu_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerInside" />
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:id="@+id/menu_03"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="300dp"
+        android:elevation="10dp"
+        app:diagonal_angle="20"
+        app:diagonal_direction="left"
+        app:diagonal_position="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/armory_hall" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:rotation="340"
+            android:textSize="30dp"
+            android:text="@string/menu_item"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    </com.github.florent37.diagonallayout.DiagonalLayout>
 
-        <ImageButton
-            android:id="@+id/open_monster_list"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/background_round_shape"
-            android:padding="15dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/minotaur"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:id="@+id/menu_02"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="150dp"
+        android:elevation="10dp"
+        app:diagonal_angle="20"
+        app:diagonal_direction="left"
+        app:diagonal_position="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/test_open_dices"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/background_round_shape"
-            android:padding="15dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_dice"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideline"
-            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/orc_camp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:rotation="340"
+            android:textSize="30dp"
+            android:text="@string/menu_group"/>
+    </com.github.florent37.diagonallayout.DiagonalLayout>
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:id="@+id/menu_creatures"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:elevation="10dp"
+        app:diagonal_angle="20"
+        app:diagonal_direction="left"
+        app:diagonal_position="bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/gobelin_sketch" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:rotation="340"
+            android:textSize="30dp"
+            android:text="@string/menu_creature"/>
+    </com.github.florent37.diagonallayout.DiagonalLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.github.florent37.diagonallayout.DiagonalLayout
+        android:id="@+id/menu_dice"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:elevation="10dp"
+        app:diagonal_angle="22"
+        app:diagonal_direction="left"
+        app:diagonal_position="bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:src="@drawable/d20" />
+    </com.github.florent37.diagonallayout.DiagonalLayout>
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

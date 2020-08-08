@@ -5,9 +5,10 @@
     <string name="confirm_text">Confirm</string>
     <string name="cancel_text">Cancel</string>
 
-    <string name="menu_dice">Dice</string>
-    <string name="menu_creature">Creature</string>
-    <string name="menu_group">Group</string>
+    <string name="menu_dice">Dices</string>
+    <string name="menu_creature">Creatures</string>
+    <string name="menu_group">Groups</string>
+    <string name="menu_item">Items</string>
 
     <string name="spinner_size_tinny">Tiny</string>
     <string name="spinner_size_small">Small</string>

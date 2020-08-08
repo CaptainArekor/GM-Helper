@@ -5,14 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.arekor.gm_helper.R
-import com.squareup.picasso.Picasso
-import jp.wasabeef.picasso.transformations.BlurTransformation
-import kotlinx.android.synthetic.main.fragment_creature_list.view.*
-import kotlinx.android.synthetic.main.fragment_navigation_menu.*
 import kotlinx.android.synthetic.main.fragment_navigation_menu.view.*
 
 class NavigationMenuFragment : Fragment() {
@@ -23,14 +19,24 @@ class NavigationMenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_navigation_menu, container, false)
-        view.open_monster_list.setOnClickListener { openMonsterList() }
-        view.test_open_dices.setOnClickListener { openDice() }
-        Picasso.get()
+        view.menu_dice.setOnClickListener {
+            openDice()
+        }
+        view.menu_creatures.setOnClickListener {
+            openMonsterList()
+        }
+        view.menu_02.setOnClickListener {
+            println("Menu 02")
+        }
+        view.menu_03.setOnClickListener {
+            println("Menu 03")
+        }
+        /*Picasso.get()
             .load(R.drawable.background_image_forest)
             .transform(BlurTransformation(context, 50, 1))
             .centerCrop()
             .fit()
-            .into(view.navigation_menu_background)
+            .into(view.navigation_menu_background)*/
         return view
     }
 
@@ -44,6 +50,10 @@ class NavigationMenuFragment : Fragment() {
         navigationBar.setTitle(getString(R.string.app_name))
         navigationBar.showBackButton(false)
         navigationBar.showValidateButton(false)
+    }
+
+    private fun toastMe(text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
     }
 
     private fun openMonsterList() {

@@ -18,22 +18,22 @@ class CreatureStatisticsFragment : Fragment() {
     ): View? {
         val statsView = inflater.inflate(R.layout.fragment_creature_statistics, container, false)
 
-        statsView.creature_statistics_strength.setOnFocusChangeListener{ view: View, b: Boolean ->
+        statsView.creature_statistics_strength.setOnFocusChangeListener{ view: View, _: Boolean ->
             checkEmptyValue(view as EditText)
         }
-        statsView.creature_statistics_dexterity.setOnFocusChangeListener{ view: View, b: Boolean ->
+        statsView.creature_statistics_dexterity.setOnFocusChangeListener{ view: View, _: Boolean ->
             checkEmptyValue(view as EditText)
         }
-        statsView.creature_statistics_constitution.setOnFocusChangeListener{ view: View, b: Boolean ->
+        statsView.creature_statistics_constitution.setOnFocusChangeListener{ view: View, _: Boolean ->
             checkEmptyValue(view as EditText)
         }
-        statsView.creature_statistics_intelligence.setOnFocusChangeListener{ view: View, b: Boolean ->
+        statsView.creature_statistics_intelligence.setOnFocusChangeListener{ view: View, _: Boolean ->
             checkEmptyValue(view as EditText)
         }
-        statsView.creature_statistics_wisdom.setOnFocusChangeListener{ view: View, b: Boolean ->
+        statsView.creature_statistics_wisdom.setOnFocusChangeListener{ view: View, _: Boolean ->
             checkEmptyValue(view as EditText)
         }
-        statsView.creature_statistics_charisma.setOnFocusChangeListener{ view: View, b: Boolean ->
+        statsView.creature_statistics_charisma.setOnFocusChangeListener{ view: View, _: Boolean ->
             checkEmptyValue(view as EditText)
         }
 

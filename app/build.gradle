@@ -73,4 +73,7 @@ dependencies {
     implementation "com.squareup.picasso:picasso:$picassoVersion"
     implementation 'jp.wasabeef:picasso-transformations:2.2.1'
 
+    // Diagonale
+    implementation 'com.github.florent37:diagonallayout:1.0.9'
+
 }
