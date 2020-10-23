@@ -9,15 +9,11 @@
         android:id="@+id/creatureListFragment"
         android:name="com.arekor.gm_helper.metier.creature.CreatureListFragment"
         android:label="fragment_creature_list"
-        tools:layout="@layout/fragment_creature_list"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@anim/no_animation_600"/>
+        tools:layout="@layout/fragment_creature_list"/>
     <fragment
         android:id="@+id/diceFragment"
         android:name="com.arekor.gm_helper.metier.dice.dice.DiceFragment"
         android:label="fragment_dice"
-        tools:layout="@layout/fragment_dice"
-        app:enterAnim="@android:anim/slide_in_left"
-        app:exitAnim="@anim/no_animation_600"/>
+        tools:layout="@layout/fragment_dice"/>
 
 </navigation>
