@@ -1,9 +1,8 @@
 package com.arekor.gm_helper
 
 import android.os.Bundle
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.arekor.gm_helper.creature.CreatureViewModel
+import com.arekor.gm_helper.metier.creature.CreatureViewModel
 
 class MainActivity : AppCompatActivity() {
 

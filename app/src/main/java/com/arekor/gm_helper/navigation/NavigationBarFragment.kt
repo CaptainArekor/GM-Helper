@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.arekor.gm_helper.R
+import com.arekor.gm_helper.utils.UIHelper
 import kotlinx.android.synthetic.main.fragment_navigation_bar.view.*
 
 class NavigationBarFragment : Fragment() {
@@ -34,16 +35,10 @@ class NavigationBarFragment : Fragment() {
     }
 
     fun showBackButton(shown: Boolean) {
-        if (shown)
-            menuView.navigation_back_button.visibility = View.VISIBLE
-        else
-            menuView.navigation_back_button.visibility = View.GONE
+        UIHelper.setViewVisible(menuView.navigation_back_button, shown)
     }
 
     fun showValidateButton(shown: Boolean){
-        if (shown)
-            menuView.navigation_validate_button.visibility = View.VISIBLE
-        else
-            menuView.navigation_validate_button.visibility = View.GONE
+        UIHelper.setViewVisible(menuView.navigation_validate_button, shown)
     }
 }

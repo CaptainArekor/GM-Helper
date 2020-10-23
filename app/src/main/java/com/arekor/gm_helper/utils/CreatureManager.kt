@@ -1,6 +1,6 @@
 package com.arekor.gm_helper.utils
 
-import com.arekor.gm_helper.data.model.Creature
+import com.arekor.gm_helper.storage.model.Creature
 
 class CreatureManager {
     companion object {

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".creature.creature_sheet.CreatureSheetFragment">
+    tools:context=".metier.creature.creature_sheet.CreatureSheetFragment">
 
     <ScrollView
         android:layout_width="match_parent"
