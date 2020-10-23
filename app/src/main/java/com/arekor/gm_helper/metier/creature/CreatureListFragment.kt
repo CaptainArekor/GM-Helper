@@ -9,11 +9,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arekor.gm_helper.R
-import com.arekor.gm_helper.navigation.NavigationBarFragment
 import kotlinx.android.synthetic.main.fragment_creature_list.*
 import kotlinx.android.synthetic.main.fragment_creature_list.view.*
 
@@ -33,18 +31,6 @@ class CreatureListFragment : Fragment() {
         // Get the view model )
         model = ViewModelProviders.of(requireActivity()).get(CreatureViewModel::class.java)
 
-    }
-
-    override fun onStart() {
-        super.onStart()
-        setNavigationBar()
-    }
-
-    private fun setNavigationBar() {
-        val navigationBar = childFragmentManager.fragments.first() as NavigationBarFragment
-        navigationBar.setTitle("CREATURES")
-        navigationBar.showBackButton(true)
-        navigationBar.showValidateButton(false)
     }
 
     override fun onCreateView(
@@ -68,7 +54,7 @@ class CreatureListFragment : Fragment() {
         })
 
         view.monster_list_add_monster.setOnClickListener {
-            findNavController().navigate(R.id.monsterCreationFragment)
+            //findNavController().navigate(R.id.monsterCreationFragment)
         }
         return view
     }

@@ -3,38 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/navigationMenuFragment">
+    app:startDestination="@id/creatureListFragment">
 
     <fragment
-        android:id="@+id/monsterListFragment"
+        android:id="@+id/creatureListFragment"
         android:name="com.arekor.gm_helper.metier.creature.CreatureListFragment"
-        android:label="fragment_monster_list"
-        tools:layout="@layout/fragment_creature_list" >
-        <action
-            android:id="@+id/action_monsterListFragment_to_monsterCreationFragment"
-            app:destination="@id/monsterCreationFragment" />
-    </fragment>
+        android:label="fragment_creature_list"
+        tools:layout="@layout/fragment_creature_list"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@anim/no_animation_600"/>
     <fragment
-        android:id="@+id/navigationMenuFragment"
-        android:name="com.arekor.gm_helper.navigation.NavigationMenuFragment"
-        android:label="fragment_navigation_menu"
-        tools:layout="@layout/fragment_navigation_menu" >
-        <action
-            android:id="@+id/action_navigationMenuFragment_to_monsterListFragment"
-            app:destination="@id/monsterListFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/monsterCreationFragment"
-        android:name="com.arekor.gm_helper.metier.creature.creature_sheet.CreatureSheetFragment"
-        android:label="fragment_monster_creation"
-        tools:layout="@layout/fragment_creature_sheet" >
-        <action
-            android:id="@+id/action_monsterCreationFragment_to_diceFragment"
-            app:destination="@id/diceFragment" />
-    </fragment>
-    <dialog
         android:id="@+id/diceFragment"
         android:name="com.arekor.gm_helper.metier.dice.dice.DiceFragment"
         android:label="fragment_dice"
-        tools:layout="@layout/fragment_dice" />
+        tools:layout="@layout/fragment_dice"
+        app:enterAnim="@android:anim/slide_in_left"
+        app:exitAnim="@anim/no_animation_600"/>
+
 </navigation>

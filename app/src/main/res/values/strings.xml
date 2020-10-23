@@ -1,14 +1,18 @@
 <resources>
+    <!-- GLOBAL -->
     <string name="app_name">GM Sidekick</string>
 
-    <string name="monster_item_delete_button">Delete</string>
-    <string name="confirm_text">Confirm</string>
-    <string name="cancel_text">Cancel</string>
-
+    <!-- MENU -->
     <string name="menu_dice">Dices</string>
     <string name="menu_creature">Creatures</string>
     <string name="menu_group">Groups</string>
     <string name="menu_item">Items</string>
+
+
+
+    <string name="monster_item_delete_button">Delete</string>
+    <string name="confirm_text">Confirm</string>
+    <string name="cancel_text">Cancel</string>
 
     <string name="spinner_size_tinny">Tiny</string>
     <string name="spinner_size_small">Small</string>
