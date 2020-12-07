@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/creatureListFragment"
         android:name="com.arekor.gm_helper.metier.creature.CreatureListFragment"
-        android:label="fragment_creature_list"
+        android:label="Creatures"
         tools:layout="@layout/fragment_creature_list"/>
     <fragment
         android:id="@+id/diceFragment"
         android:name="com.arekor.gm_helper.metier.dice.dice.DiceFragment"
-        android:label="fragment_dice"
+        android:label="Dice"
         tools:layout="@layout/fragment_dice"/>
 
 </navigation>

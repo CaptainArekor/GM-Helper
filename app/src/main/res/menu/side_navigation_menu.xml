@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/menu_main_group" android:checkableBehavior="single">
+        <item
+            android:id="@+id/creatureListFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_add"
+            android:title="@string/menu_creature"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/groupListFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_add"
+            android:title="@string/menu_group"
+            app:showAsAction="ifRoom" />
+        <item
+            android:id="@+id/action_landscape"
+            android:enabled="true"
+            android:icon="@drawable/ic_add"
+            android:title="@string/menu_item"
+            app:showAsAction="ifRoom" />
+    </group>
+    <group android:id="@+id/menu_tools_group" android:checkableBehavior="single">
+        <item
+            android:id="@+id/diceFragment"
+            android:enabled="true"
+            android:icon="@drawable/ic_add"
+            android:title="@string/menu_group"
+            app:showAsAction="ifRoom" />
+    </group>
+</menu>

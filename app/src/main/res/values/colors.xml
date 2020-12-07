@@ -15,4 +15,6 @@
     <color name="colorOrange">#ffcc00</color>
 
     <color name="colorInk">#6f6f6a</color>
+
+    <color name="colorTransparent">#BBf2f1e8</color>
 </resources>
