@@ -1,6 +1,6 @@
-package com.arekor.gm_helper.metier.creature
+package com.arekor.gm_helper.app.creature
 
-import com.arekor.gm_helper.metier.creature.model.ChallengeRating
+import com.arekor.gm_helper.app.creature.model.ChallengeRating
 
 class ChallengeRatingData {
     companion object{

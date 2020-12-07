@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.loader
+package com.arekor.gm_helper.app.creature.creature_sheet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.arekor.gm_helper.R
 
-class LoaderFragment : Fragment() {
+class CreatureEnvironmentFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_loader, container, false)
+        return inflater.inflate(R.layout.fragment_creature_environment, container, false)
     }
 }

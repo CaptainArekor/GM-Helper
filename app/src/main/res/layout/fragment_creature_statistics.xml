@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".metier.creature.creature_sheet.CreatureStatisticsFragment">
+    tools:context=".app.creature.creature_sheet.CreatureStatisticsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

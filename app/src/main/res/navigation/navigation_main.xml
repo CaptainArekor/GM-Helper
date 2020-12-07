@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/creatureListFragment"
-        android:name="com.arekor.gm_helper.metier.creature.CreatureListFragment"
+        android:name="com.arekor.gm_helper.app.creature.CreatureListFragment"
         android:label="Creatures"
         tools:layout="@layout/fragment_creature_list"/>
     <fragment
         android:id="@+id/diceFragment"
-        android:name="com.arekor.gm_helper.metier.dice.dice.DiceFragment"
+        android:name="com.arekor.gm_helper.app.dice.dice.DiceFragment"
         android:label="Dice"
         tools:layout="@layout/fragment_dice"/>
 

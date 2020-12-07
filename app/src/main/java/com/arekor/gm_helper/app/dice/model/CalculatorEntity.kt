@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.dice.dice.model
+package com.arekor.gm_helper.app.dice.dice.model
 
 data class CalculatorEntity(var amount: Int, var sign: Int, var dice: Dice?) {
     private var results = mutableListOf<Int>()

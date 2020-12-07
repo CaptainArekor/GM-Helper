@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.dice.dice.model
+package com.arekor.gm_helper.app.dice.dice.model
 
 import kotlin.random.Random
 import kotlin.random.nextInt

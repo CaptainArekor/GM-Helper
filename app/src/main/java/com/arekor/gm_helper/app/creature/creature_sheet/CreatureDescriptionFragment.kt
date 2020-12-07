@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.creature.creature_sheet
+package com.arekor.gm_helper.app.creature.creature_sheet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

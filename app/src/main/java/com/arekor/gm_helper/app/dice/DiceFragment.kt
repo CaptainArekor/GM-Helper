@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.dice.dice
+package com.arekor.gm_helper.app.dice.dice
 
 import android.os.Bundle
 import android.view.LayoutInflater

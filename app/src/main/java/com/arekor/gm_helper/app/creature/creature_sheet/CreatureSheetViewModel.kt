@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.creature.creature_sheet
+package com.arekor.gm_helper.app.creature.creature_sheet
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

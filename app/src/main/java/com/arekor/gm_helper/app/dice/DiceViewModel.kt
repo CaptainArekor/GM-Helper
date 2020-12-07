@@ -1,4 +1,4 @@
-package com.arekor.gm_helper.metier.dice.dice
+package com.arekor.gm_helper.app.dice.dice
 
 import android.app.Application
 import android.content.Context
@@ -6,8 +6,8 @@ import android.media.MediaPlayer
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.arekor.gm_helper.R
-import com.arekor.gm_helper.metier.dice.dice.model.CalculatorEntity
-import com.arekor.gm_helper.metier.dice.dice.model.Dice
+import com.arekor.gm_helper.app.dice.dice.model.CalculatorEntity
+import com.arekor.gm_helper.app.dice.dice.model.Dice
 
 const val DIVIDE_SIGN = 1
 const val MULTIPLY_SIGN = 2
