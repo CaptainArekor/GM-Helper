@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="horizontal_guideline">20sp</dimen>
+    <dimen name="horizontal_guideline_major">70sp</dimen>
+    <dimen name="vertical_guideline">20sp</dimen>
+    <dimen name="vertical_guideline_major">40sp</dimen>
+</resources>
