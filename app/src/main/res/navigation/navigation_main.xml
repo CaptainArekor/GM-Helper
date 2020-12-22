@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    app:startDestination="@id/menuFragment">
+    app:startDestination="@id/creatureListFragment">
 
     <fragment
         android:id="@+id/creatureListFragment"
@@ -15,16 +15,5 @@
         android:name="com.arekor.gm_helper.app.dice.dice.DiceFragment"
         android:label="Dice"
         tools:layout="@layout/fragment_dice"/>
-    <fragment
-        android:id="@+id/menuFragment"
-        android:name="com.arekor.gm_helper.app.menu.MenuFragment"
-        android:label="@string/app_name"
-        tools:layout="@layout/fragment_menu" >
-        <action
-            android:id="@+id/action_menuFragment_to_creatureListFragment"
-            app:destination="@id/creatureListFragment"
-            app:enterAnim="@android:anim/fade_in"
-            app:exitAnim="@anim/no_animation_600" />
-    </fragment>
 
 </navigation>
